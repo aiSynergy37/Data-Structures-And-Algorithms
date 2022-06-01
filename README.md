@@ -1,2 +1,2 @@
 # DataStructureAlgorithm
-Implementation Of Generic Data Structure &amp; Algorithms in Python &amp; C++.
+Implementation Of Generic Data Structures &amp; Algorithms in Python &amp; C++.
