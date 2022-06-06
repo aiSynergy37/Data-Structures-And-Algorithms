@@ -1,5 +1,5 @@
 class Node:
-	def __init__(self, data, next):
+	def __init__(self, data = None, next = None):
 		self.data = data
 		self.next = next
 
@@ -12,10 +12,11 @@ class LinkedList:
 		cur_node = self.head
 		while cur_node.next != None:
 			cur_node = cur_node.next
-		cur_node = new_node
+		cur_node.next = new_node
 
 	def display(self):
 		cur_node = self.head
+		arr = []
 		while cur_node.next != None:
 			cur_node = cur_node.next
 			arr.append(cur_node.data)
@@ -72,10 +73,11 @@ class LinkedList:
 		while cur_node.next != None:
 			cur_node = cur_node.next
 			if c == index:
+				print(cur_node.data)
 				return cur_node.data
 			c += 1
 
-	def set(self, index):
+	def set(self, index, data):
 		cur_node = self.head
 		c = 0
 		while cur_node.next != None:
@@ -88,6 +90,33 @@ class LinkedList:
 	def __get__(self, index):
 		print(self.get(index))
 		return self.get(index)
+
+
+def main():
+	ll = LinkedList()
+	ll.append(1)
+	ll.append(3)
+	ll.append(5)
+	ll.append(7)
+	ll.display()
+	ll.length()
+	ll.search(100)
+	ll.search(5)
+	ll.get(1)
+	ll.get(3)
+	ll.display()
+	ll.insertAt(4, 98)
+	ll.display()
+	ll.erase(2)
+	ll.display()
+	ll.set(0, 1000)
+	ll.display()
+	ll.__get__(1)
+	
+
+
+if __name__ == '__main__':
+	main()
 
 
 
