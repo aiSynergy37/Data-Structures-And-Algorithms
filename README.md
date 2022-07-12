@@ -150,3 +150,83 @@ DSA :
 		1. trie
 		2. longest prefix matching
 		3. reverse dns look up cache
+
+	Trie
+		1. Trie (Insert and Search)
+		2. Trie (Del)
+		3. Longest prefix matching -  A Trie based solution
+		4. Print unique rows in a given boolean matrix
+		5. How to implement reverse DNS look up cache
+		6. How to implement forward DNS look up cache
+
+	Binary Indexed Tree
+		1. Binary Indexed Tree
+		2. Two Dimensional Binary  Indexed Tree or Fenwick Tree
+		3. Binary Indexed Tree: Range Updates and Point Queries
+		4. Binary Indexed TreeL Range Update and Range Queries
+	
+	Suffix Array and Suffix Tree:
+		1. Suffix Array Intro
+		2. Kasai's algorithm for construction of LCP array from Suffix Arr
+		3. Suffix Tree Introduction
+		4. Ukkonen''s Suffix Tree Construction
+		5. Generalized Suffix Tree
+		6. Build Linear Time Suffix Arr Using Suffix Tree
+		7. Generalized Suffix Tree
+		8. Build Linear Time Suffix Arr 
+		9. Substring Check
+		10.Longest Repeated Substring
+		11.Longest Common Substring, Longest Palindromic Substring
+
+	AVL Tree
+		1. AVL Tree
+		2. AVL Tree with duplicate keys
+	
+	Splay Tree
+		1. Splay Tree
+	
+	B Tree
+		1. B-Tree
+	
+	Red Black Tree
+		1. Red Black Tree
+	
+	K Dimensional Tree
+		1. Search,Ins,Del,Fin Max
+	
+	Others:
+		1. Treap
+		2. Ternary Search Tree
+		3. Interval Tree
+		4. Implement LRU Cache
+		5. Sort numbers stored on diff machines
+		6. Find the K most frequent words from  file
+
+	Array
+		1.Leaders in an arr
+		2.majority elem
+		3.find the num occuring odd num of times
+		4.largest sum contiguous subarr
+		5.Find the missing num
+		6. search an elem in a sorted and pivoted arr
+		7.merge an arr of size n into another array of size(m + n)
+		8.median of two sorted arrs
+		9.program for arr rotation
+		10.reversal algorithm for arr rotation
+		11.block swap algo for arr rotation
+		12.max sum s.t. no elems are adjácent
+		13.sort elems by frequency
+		13.count inversions in an arr
+
+	Matrix
+		1.Search in a row wise and col wise sorted matrix
+		2.Print a given matrix in spiral form
+		3.A boolean matrix question
+		4.Maximum size square sub-matrix with all 1s
+		5.Inplace MxN size matrix transpose
+		6. Strassen Mat multiplixation
+		7. Create a matrix with alternationg rectangles of 0 and x
+		8.print all elems in sorted order from row and col wise sorted  matrix
+		9.count the number of islands where every island is row
+		10.find a common element in all rows of a given row-wise sorted matrix
+		
