@@ -1,4 +1,5 @@
 # iterative methods for pre-order, post-order, & in-order traversal
+from collections import deque
 
 class TreeNode:
     def __init__(self, val = 0, left = None, right = None):
@@ -46,6 +47,22 @@ class Solution:
                 root = node.left
         return res[::-1]
 
+
+    def levelorderTraversal(self, root):
+        queue, res = deque([root]), []
+        while queue:
+            cur_level, size = [], len(queue)
+            for i in range(size):
+                node = queue.popleft()
+                if node: 
+                    cur_level.append(node.val)
+                    queue.append(node.left)
+                    queue.append(node.right)
+            if cur_level:
+                res.append(cur_level)
+        return res
+
+
 if __name__ == "__main__":
     root = TreeNode(1)
     root.left = TreeNode(2)
@@ -57,4 +74,5 @@ if __name__ == "__main__":
     print(t.preorderTraversal(root))
     print(t.inorderTraversal(root))
     print(t.postorderTraversal(root))
+    print(t.levelorderTraversal(root))
 
