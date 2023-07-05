@@ -1,0 +1,160 @@
+BFS W4L3 M Mukund
+
+-> Assume V = {0,  1, ..., n-1}
+
+-> visited: V->{True, Fals} tells us whether v belongs to V has
+been visited.
+	-> Initially, visited(v) = False for all v belongs to V
+
+-> Maintain a sequence of visited vertices yet to be explored
+	-> A queue --- first in, first out
+	-> Initially empty
+
+-> Exploring a vertex i
+	-> For each edge (i, j), if visited(j) is False,
+		-> set visited(j) to True
+		-> Append j to the queue
+=================================================================
+
+		*** Breadth First Searcg ***
+* Initially
+	* visited(v) = False for all v belongs to V
+	* Queue of vertices to be explored is empty
+
+* Start BFS from vertex j
+	* set visited(j) = True
+	* Add j to the queue
+
+* Remove and explore vertex i at head of queue
+	* For each edge (i, j), if visited(j) is False,
+		* set visited(j) to True
+		* append j to the queue
+* stop when queue is empty
+
+
+=========================================================
+
+Complexity of BFS
+-> G = (V, E)
+	-> |V| = n
+	-> |E| = m
+	-> If G is connected, m can vary from n-1 to n(n-1)/2
+
+-> In BFS, each reachable vertex is processed exactly once
+	-> Visit the vertex: add to queue
+	-> Explore the vertex: remove from queue
+	-> Visit and explore at most n vertices
+
+-> Exploring a vertex
+	-> Check all outgoing edges
+	-> How long does this taks
+
+Adjacency Matrix
+	-> To explore i, scan neighbors(i)
+	-> Look up  entries in row i, regardless of degree(i)
+
+Adjacency List
+	-> List neighbors(i) is directly available
+	-> Time to explore i is degree(i)
+	-> Degree varies across vertices
+
+Sum of degrees
+	-> Sum of degrees is 2m
+	-> Each edge (i,j) contributes to degree(i) and degree(j)
+
+BFS with adjacency matrix
+	-> n steps to initialize each vertex
+	-> n steps to explore each vertex
+	-> Overall time is O(n**2)
+
+BFS with adjacency list
+	n steps to initialize each vertex
+	2m steps (sum of degrees) to explore all vertices
+		An example of amortized analysis
+
+	Overall time is O(n + m)
+
+If m << n**2, working with adjacency lists is much more efficient
+	This is why we treat m and n as separate params
+
+For graphs O(M+n) is typically the best possible complexity
+	Need to see each vertex and edge at least once
+
+	Linear time
+
+
+===============================================================
+	Enhancing BFS to record paths
+
+def BSFListPath(AList, v):
+    (visited, parent) = ({}, {})
+    for i in AList.keys():
+        visited[i] = False
+        parent[i] = -1
+    q = Queue()
+    #
+    visited[v] = True
+    q.addq(v)
+    #
+    while (not q.ismpty()):
+        j = q.delq()
+        for k in AList[j]:
+            if (not visieted[k]):
+                parent[k] = j
+                q.addq(k)
+    return (visited, parent)
+
+-> If BFS from i sets visited(k) = True, we know that k is 
+	reachable from i
+
+-> How do we recover a path from i to k?
+
+-> visited(k) was set to True when exploring some vertex j
+
+-> Record parent(k) = j
+
+-> From k, follow parent links to trace back a path to i.
+
+initially all parents are -1 and all visited are false
+
+
+===============================================================
+
+Enhancing BFS to record distance
+
+-> BFS explores neighbors level by level
+
+-> BFS recordng the lvel at which a vertex is visited, we get
+	its distance from the source vertex
+
+-> Instead of visited(j), maintain level(j)
+
+-> Initialize level(j) = -1 for all j
+
+-> Set level(i) = 0 for source vertex
+
+-> if we visit k from j, set level(k) to level(j) + 1
+
+-> level(j) is the length of the shortest path from the source
+vertex in number of edges
+
+==============================================================
+
+Summary
+
+-> BFS is a systematic strategy to explore a graph level by level
+
+-> Record which vertices have been visited
+
+-> Maintain visited but unexplored vertices in a queue
+
+-> Complexity is O(n^2) using adjacency matrix, O(m+n) using
+	adjacency list
+
+-> Add parent information to recover the path to each reachable vertex
+
+-> Maintain level information to record length of the shortest path, in terms of edges
+	- In general, edges are labelled with a cost(distance, time, price)
+	- Will look at weighted graphs, where SPs are in terms of cost, not number of edges.
+
+
