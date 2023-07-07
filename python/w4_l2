@@ -1,0 +1,74 @@
+Graphs are interesting objects to represent relations.
+To work on graph, we have to transform this pic into
+something that we can manipulate.
+
+- Graph G = (V, E)
+      - V - set of vertices
+      - E is the subset of the CP of V x V (set of edges)
+
+- A path is a sequence of vertices v1, v2,....., vk
+      - For i <= i < k, (vi, vi+1) belongs to E
+
+- Vertex v is reachable from vertex u if there is a path from u to v
+
+- Looking at the picture of G, we can see that v0 is reachable from v9.
+
+- How do we represent this picture so that we can compute reachability.
+
+If it is much larger graph then even visually it is not possible
+to establish the path.
+
+Algorithm has to represent the graph in the concrete way and
+manipulate this representation in such a way that it can solve
+these problems without relying on this intuition of what the picture looks like. Picture is helpful for us. But it is not
+helpful for an algorithm.
+
+
+Adjacent Matrix
+- Let |V| = n
+      - Assume V = {0, 1, ... , n - 1}
+      - Use a table to map actual vertex to this set
+
+- Edges are now pairs (i, j), where 0 <= i, j < n
+      - Usually assume i != j, no self loops
+
+- Adjaceny Matrix
+      - Rows and columns numbered {0, 1, ... , n - 1}.
+      - A[i, j] = 1 if (i, j) belonged to E.
+
+edges = [(0, 1),(0, 4),(1, 2),(2, 0),
+      (3, 4),(3, 6),(4, 0),(4, 3),
+      (4, 7),(5, 3),(5, 7),
+      (6, 5),(7, 4),(7, 8),
+      (8, 5),(8, 9),(9, 8)]
+
+import numpy as np
+A = np.zeros(shape=(10, 10))
+
+for (i, j) in edges:
+      A[i, j] = 1
+
+# shape gives the size of the array along each dimension
+
+in an undirected graph (i, j) is an edge implies (j, i) is
+also an edge.
+
+symmetric means if you go same distance below the diag
+you will find the eql val. a[i][j] = a[j][i].
+
+Computing with the adjacent matrix
+
+Finding the neighbors of a node using AM.
+
+Neighbors of i --- column j with entry 1
+      Scan row i to identify neighbors of i
+      Neighbors of 6 are [3, 5]
+
+def neighbors(AMat, i):
+      nbrs = []
+      (rows, cols) = AMat.shape
+      for j in range(cols):
+            if AMat[i, j] ==  1:
+                  nbrs.append(j)
+      return (nbrs)
+neighbors(A, 7)
