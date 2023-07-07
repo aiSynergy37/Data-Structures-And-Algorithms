@@ -1,0 +1,11 @@
+###################### Jump ########################
+class Solution:
+    def canJump(self, nums):
+        # lastgoodindexposition
+        lgip = len(nums) - 1
+        for i in range(len(nums)-1, -1, -1):
+            if (i + nums[i] >= lgip):
+                lgip = i
+        print(lgip)
+        return lgip == 0
+###################################################
