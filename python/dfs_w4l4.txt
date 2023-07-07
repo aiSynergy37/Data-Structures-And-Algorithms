@@ -1,0 +1,80 @@
+There are two fundamental strategies to search and find the reachability in graphs --- BFS and DFS
+
+
+DFS
+
+-> Start from some vertex i, and visit any one unexplored neighbor j
+
+-> Suspend the exploration of i and explore j instead
+
+-> Continue till you reach a vertex with no unexplored neighbors
+
+-> Backtrack to nearest suspended vertex that still has an 
+	unexplored neighbor
+
+-> Suspended vertices are stored in a stack
+	-> Last in, first out
+	-> Most recently suspended is checked first
+
+"""
+When we backtrack, we go back to the most recent vertex from
+which we had made the choice. Thats why we use the stack.
+"""
+
+===============================================================
+
+
+Implementing DFS
+
+-> DFS is most natural to implement recursively
+	-> For each unvisited neighbor of v, call DFS(v)
+
+-> No need to maintain a stack
+	-> Recursion implicitly maintain stack
+	-> Separate initialization step
+
+-> Can make visited and parent global
+	-> Still need to initialize them according to the 
+		size of input adjacency matrix / list.
+
+
+def DFSInit(AMat):
+	# Initialization
+	(rows, cols) = AMat.shape
+	(visited, parent) = ({}, {})
+	for i in range(rows):
+		visited[i] = False
+		parent[i] = -1
+	return (visited, parent)
+
+def DFS(AMat, visited, parent, v):
+	visited[v] = True
+	
+	for k in neighbours(AMat, v):
+		if (not visited[k]):
+			parent[k] = v
+			(visited, parent) = DFS(AMat, visited, parent, k)
+	return (visited, parent)
+
+==============================================================
+Making parents and visited global.
+You can access them from inside DFS. 
+And you can update them from inside DFS.
+
+(visited, parent) = ({}, {})
+
+def DFSInitGlobal(AMat):
+	# Initialization
+	(rows, cols) = AMat.shape
+	for i in range(rows):
+		visited[i] = False
+		parent[i] = - 1
+	return
+
+def DFSGlobal(AMat, v):
+	visited[v] = True
+	for k in neighbors(AMat, v):
+		if (not visited[k]):
+			parent[k] = v
+			DFSGlobal(AMat, k)
+	return
