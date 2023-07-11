@@ -1,0 +1,159 @@
+Graph is a useful way to visualize the relationship.
+
+
+->Teachers and courses
+	->T, set of teachers in a college
+	  C, set of courses being offered
+
+	->A is the subset of T x C describing the allocation /
+	assocition of teachers to / with courses.
+
+	->A = {(t, c) | (t, c) belongs to T x C, t teaches c}
+
+=================================================================
+
+Graph is a set of vertices
+
+-> Graph: G = (V, E)
+	-> V is a set of vertices or nodes
+		-> One vertex, many vertices
+-> E is a set of edges
+-> E is the subset of V x V --- binary relation
+
+=================================================================
+
+Directed Graph
+
+->(v, v') belongs to E does not imply (v', v) belongs to E.
+-> The teacher course graph is directed
+
+Undirected Graph
+
+-> if (v, v') belongs to E iff (v', v) belongs to E.
+-> Effectively (v, v'), (v', v) are the same edge
+-> Friendship graph is undirected
+
+===============================================================
+
+Reachability
+-> Paths in directed graphs
+-> A path is a sequence of vertices v1, v2,...,vk
+connected
+
+-> How can I fly from Madurai to Delhi?
+	-> Find a path from vertex u if there is a path from u to v
+
+-> Typical questions
+	-> Is v reachable from u?
+	-> What is the shortest path from u to v?
+	-> What are the vertices reachable from u?
+	-> Is the graph connected?  Are all vertices reachable from each other?
+===============================================================
+
+Graph Application
+	Map coloring
+		Assign each state a color.
+		States that share a border should be
+		colored differently.
+		How many colors do we need?
+		Create a graph
+			Each state is a vertex
+			Connect states that share the border
+		Assign colors to nodes so that endpoints
+			of an edge have different colors
+		Only need the underlying graph
+		Abstraction: if we distort the graph, problem 
+			is unchanged.
+	Reachability
+
+
+===============================================================
+
+Map coloring
+
+Graph Coloring
+Graph G = (V, E), set of colors C
+Coloring is a function c: V -> C such that (u, v) belongs to E => c(u) != c(v).
+Given G = (V, E), what is the smallest set of colors need to color G
+	Four Color Theorem For planar graphs derived from geographical maps, 4 colors suffice.
+
+And if it is not planar, this is not true. And then it becomes
+a computationally interesting question to ask, what is the minimum number of colors? And it is one of these problems for which there is no efficient algorithm known?
+
+	Not all graphs are planar. General case?
+	Why do we care?
+
+How many classrooms do we need?
+	Courses and timetable slots, edges represent overlapping slots
+	Colors are classrooms
+
+
+->Vertex cover
+->A hotel wants to install security cameras
+	->All corridors are straight lines
+	->Camera can monitor all corridors that meet at an intersection
+
+->Minimum number of cameras needed
+
+
+Planar graph --- no two edges cross on the paper.
+
+
+===============================================================
+
+Vertex cover
+
+A hotel wants to install security cameras
+	All corridors are straight line
+	Cameras can monitor all corridors that meet at an intersection
+
+
+Minimum number of cameras needed?
+
+Represent the floor plan as a graph
+	V ---- intersection of corridors
+	E ---- corridor segments connecting intersections
+
+Vertex cover
+	Making v cover all edges from v
+	Mark smallest subset of V to cover all edges
+===============================================================
+
+Independent set
+
+-> A dance school puts up group dances
+	-> Each dance has a set of dancers
+	-> Sets of dancers may overlap across dances
+
+-> Organizing a cultural programme
+	-> Each dancer performs at most once
+	-> Maximum number of dances possible?
+
+-> Represent the dances as a graph
+	-> V --- dances
+	-> E --- sets of dances possible?
+
+-> Independent set
+	-> subset of vertices such that no two are connected by an edge
+
+
+===============================================================
+
+Matching
+-> Class project can be done by one or two people
+	-> if two people, they must be friends
+
+-> Assume we have a graph describing friendships
+
+-> Find a good allocation of groups
+
+-> Matching
+	-> G = (V, E) an undirected graph
+	-> A matching is a subset M subset E of mutually disjoint edges
+
+-> Find a maximal matching in G
+
+-> Is there a perfect matching, covering all vertices?
+
+
+
